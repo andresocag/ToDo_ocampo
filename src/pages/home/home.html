@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+      <input type="text" [(ngModel)]="newtask.name">
+      <button item-left ion-button (click)="crear()"><ion-icon name="add"></ion-icon></button>
+      
+        <ion-item *ngFor="let task of tasks | async">
+    
+          <input type="text" [(ngModel)]="task.name">
+          
+          <button item-left ion-button color="secondary" (click)="updateTask(task.$key, task.name)"><ion-icon name="refresh"></ion-icon></button>
+          <button item-left ion-button color="danger" (click)="removeTask(task)"><ion-icon name="remove"></ion-icon></button>
+    
+        </ion-item>
+    
+      </ion-list>
+</ion-content>
